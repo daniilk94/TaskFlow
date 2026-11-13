@@ -33,7 +33,7 @@ create table tasks (
   references projects(project_id)
   on delete cascade,
   constraint chk_taskStatusValues
-  check (task_status like '%todo%' OR '%in_progress%' or '%completed%')
+  check (task_status like '%todo%' OR task_status like '%in_progress%' or task_status like'%completed%')
 );
 
 insert into users (user_name, user_email, user_password_hash)
@@ -47,6 +47,8 @@ values (1, "Project 1", "Description 1"),
 insert into tasks (task_project_id, task_title, task_description)
 values (1, "Task 1", "Description 1"),
 (2, "Task 2", "Description 2");
+
+
 
 
 
